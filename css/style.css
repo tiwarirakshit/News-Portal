@@ -53,6 +53,216 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
 
+
+
+.wrapper {
+  background: #fff;
+  border-radius: 10px;
+  margin-top: 6.2rem;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.wrapper header {
+  display: flex;
+  padding: 25px 30px 10px;
+  justify-content: space-between;
+}
+
+header .icons {
+  display: flex;
+}
+
+header .icons span {
+  height: 38px;
+  width: 38px;
+  margin: 0 1px;
+  cursor: pointer;
+  color: #878787;
+  text-align: center;
+  line-height: 38px;
+  font-size: 1.9rem;
+  user-select: none;
+  border-radius: 50%;
+}
+
+.icons span:last-child {
+  margin-right: -10px;
+}
+
+header .icons span:hover {
+  background: #f2f2f2;
+}
+
+header .current-date {
+  font-size: 1.45rem;
+  font-weight: 500;
+}
+
+.calendar {
+      left: -20px;
+        position: relative;
+        padding-bottom: 2rem;
+}
+
+.calendar ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  text-align: center;
+}
+
+.calendar .days {
+  margin-bottom: 20px;
+}
+
+.calendar li {
+  color: #333;
+  width: calc(100% / 7);
+  font-size: 1.07rem;
+}
+
+.calendar .weeks li {
+  font-weight: 500;
+  cursor: default;
+}
+
+.calendar .days li {
+  z-index: 1;
+  cursor: pointer;
+  position: relative;
+  margin-top: 30px;
+}
+
+.days li.inactive {
+  color: #aaa;
+}
+
+.days li.active {
+  color: #fff;
+}
+
+.days li::before {
+  position: absolute;
+  content: "";
+  left: 50%;
+  top: 50%;
+  height: 40px;
+  width: 40px;
+  z-index: -1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.days li.active::before {
+  background: #9B59B6;
+}
+
+.days li:not(.active):hover::before {
+  background: #f2f2f2;
+}
+
+
+
+
+/* 
+.main {
+  width: 30vw;
+  height: auto;
+  background-image: linear-gradient(to bottom right, #0d47a1, black);
+  ;
+  margin: auto;
+  position: relative;
+  top: 15vh;
+  padding: 2vw;
+  color: white
+}
+
+body {
+  background-color: black;
+  font-family: 'Roboto', sans-serif
+}
+
+.flag {
+  height: 5vw;
+  width: 5vw
+}
+
+.overs {
+  color: silver;
+  position: relative;
+
+}
+
+.score {
+  position: relative;
+  color: black
+}
+
+span {
+  color: black;
+}
+
+tr {
+  border: 2px solid white
+}
+
+.right1 {
+  text-align: right
+}
+
+.head {
+  font-size: 1.3vw;
+  padding-left: 1rem;
+  text-align: center;
+}
+
+.day {
+  color: black
+}
+
+.target {
+  font-size: 1vw
+}
+
+.res {
+  font-size: 1.5vw;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.match {
+  color: black
+}
+
+@media only screen and (max-width: 425px) {
+  .main {
+    width: 100vw;
+    height: 100vw;
+    padding: 4vw
+  }
+
+  .flag {
+    width: 10vw;
+    height: 8vw
+  }
+
+  .head {
+    font-size: 5vw
+  }
+
+  .day {
+    font-size: 4vw
+  }
+
+  .target {
+    font-size: 4vw
+  }
+
+  .res {
+    font-size: 5vw
+  }
+} */
+
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
@@ -600,7 +810,6 @@ pre code {
 .container-xl {
   width: 100%;
   padding-right: 0.5rem;
-  padding-left: 0.5rem;
   margin-right: auto;
   margin-left: auto;
 }
@@ -633,7 +842,7 @@ pre code {
   display: flex;
   flex-wrap: wrap;
   margin-right: -0.5rem;
-  margin-left: -0.5rem;
+  justify-content: center
 }
 
 .no-gutters {
@@ -1540,6 +1749,8 @@ pre code {
   padding: 0.75rem;
   vertical-align: top;
   border-top: 1px solid #E4E7ED;
+  padding-bottom: 0rem;
+  border-bottom: 1px solid #E4E7ED;
 }
 
 .table thead th {
@@ -7454,6 +7665,7 @@ button.bg-dark:focus {
 .mb-5,
 .my-5 {
   margin-bottom: 3rem !important;
+  margin-left: 3rem;
 }
 
 .ml-5,
@@ -7474,6 +7686,7 @@ button.bg-dark:focus {
 .px-0 {
   padding-right: 0 !important;
 }
+
 
 .pb-0,
 .py-0 {
@@ -7533,9 +7746,9 @@ button.bg-dark:focus {
   padding-left: 0.5rem !important;
 }
 
-.p-3 {
+/* .p-3 {
   padding: 1rem !important;
-}
+} */
 
 .pt-3,
 .py-3 {
@@ -7544,7 +7757,7 @@ button.bg-dark:focus {
 
 .pr-3,
 .px-3 {
-  padding-right: 1rem !important;
+  padding-right: 2rem !important;
 }
 
 .pb-3,
@@ -9165,6 +9378,7 @@ button.bg-dark:focus {
 
 .text-left {
   text-align: left !important;
+  margin-right: 2rem;
 }
 
 .text-right {
