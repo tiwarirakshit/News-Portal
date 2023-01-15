@@ -57,12 +57,12 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 .wrapper {
   background: #fff;
-  border-radius: 10px;
-  margin-top: 6.2rem;
+  border-radius: 0px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
 }
 
 .wrapper header {
+  
   display: flex;
   padding: 25px 30px 10px;
   justify-content: space-between;
@@ -101,7 +101,8 @@ header .current-date {
 .calendar {
       left: -20px;
         position: relative;
-        padding-bottom: 2rem;
+      padding-bottom: 0.5rem;
+      padding-top: 1rem;
 }
 
 .calendar ul {
@@ -118,7 +119,7 @@ header .current-date {
 .calendar li {
   color: #333;
   width: calc(100% / 7);
-  font-size: 1.07rem;
+
 }
 
 .calendar .weeks li {
@@ -154,7 +155,7 @@ header .current-date {
 }
 
 .days li.active::before {
-  background: #9B59B6;
+  background: #FFCC00;
 }
 
 .days li:not(.active):hover::before {
@@ -164,7 +165,7 @@ header .current-date {
 
 
 
-/* 
+
 .main {
   width: 30vw;
   height: auto;
@@ -261,7 +262,7 @@ tr {
   .res {
     font-size: 5vw
   }
-} */
+}
 
 body {
   margin: 0;
@@ -737,7 +738,7 @@ mark,
 
 .img-fluid {
   max-width: 100%;
-  height: auto;
+  height: 110px;
 }
 
 .img-thumbnail {
@@ -809,7 +810,6 @@ pre code {
 .container-lg,
 .container-xl {
   width: 100%;
-  padding-right: 0.5rem;
   margin-right: auto;
   margin-left: auto;
 }
@@ -7757,7 +7757,7 @@ button.bg-dark:focus {
 
 .pr-3,
 .px-3 {
-  padding-right: 2rem !important;
+  padding-right: 1rem !important;
 }
 
 .pb-3,
