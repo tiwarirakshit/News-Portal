@@ -42,18 +42,61 @@
           <nav class="navbar navbar-expand-sm bg-dark p-0">
             <ul class="navbar-nav ml-n2">
               <li class="nav-item border-right border-secondary">
-                <a class="nav-link text-body small" href="#"
-                  >Monday, January 1, 2045</a
+                <a
+                  class="nav-link text-body small"
+                  href="index.html"
+                  id="nav_date"
+                >
+                </a>
+                <script>
+                  var nav_date = new Date();
+                  nav_year = nav_date.getFullYear();
+                  nav_day = nav_date.getDate();
+                  const nav_month = [
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December",
+                  ];
+                  let nav_name = nav_month[nav_date.getMonth()];
+                  var nav_days = [
+                    "Sunday",
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                  ];
+                  var nav_dayName = nav_days[nav_date.getDay()];
+                  document.getElementById("nav_date").innerHTML =
+                    nav_dayName +
+                    ",     " +
+                    nav_name +
+                    "     " +
+                    nav_day +
+                    "     " +
+                    nav_year;
+                </script>
+              </li>
+              <li class="nav-item border-right border-secondary">
+                <a class="nav-link text-body small" href="contact.html"
+                  >Advertise</a
                 >
               </li>
-              <li class="nav-item border-right border-secondary">
-                <a class="nav-link text-body small" href="#">Advertise</a>
-              </li>
-              <li class="nav-item border-right border-secondary">
+              <!-- <li class="nav-item border-right border-secondary">
                 <a class="nav-link text-body small" href="#">Contact</a>
-              </li>
+              </li> -->
               <li class="nav-item">
-                <a class="nav-link text-body small" href="#">Login</a>
+                <a class="nav-link text-body small" href="index.html">Login</a>
               </li>
             </ul>
           </nav>
@@ -63,52 +106,56 @@
             <ul class="navbar-nav ml-auto mr-n2">
               <li class="nav-item">
                 <a class="nav-link text-body" href="#"
-                  ><small class="fab fa-twitter"></small
+                  ><small class="fab fa-youtube yt"></small>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-body" href="#"
+                  ><small class="fab fa-instagram in"></small
                 ></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-body" href="#"
-                  ><small class="fab fa-facebook-f"></small
+                  ><small class="fab fa-twitter tw"></small
                 ></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-body" href="#"
-                  ><small class="fab fa-linkedin-in"></small
+                  ><small class="fab fa-facebook-f fb"></small
                 ></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-body" href="#"
-                  ><small class="fab fa-instagram"></small
-                ></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-body" href="#"
-                  ><small class="fab fa-google-plus-g"></small
-                ></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-body" href="#"
-                  ><small class="fab fa-youtube"></small
+                  ><small class="fab fa-linkedin-in li"></small
                 ></a>
               </li>
             </ul>
           </nav>
         </div>
       </div>
-      <div class="row align-items-center bg-white py-3 px-lg-5">
-        <div class="col-lg-4">
+      <div
+        class="row align-items-center bg-white"
+        style="padding-top: 0.5rem; padding-bottom: 0.5rem"
+      >
+        <div class="col-sm-1">
+          <a href="index.html">
+            <img
+              src="img/logo.jpeg"
+              style="height: 100px; width: 150px; margin-left: 2rem"
+            />
+          </a>
+        </div>
+        <div class="col-lg-2" style="margin-left: 1rem">
           <a href="index.html" class="navbar-brand p-0 d-none d-lg-block">
-            <h1 class="m-0 display-4 text-uppercase text-primary">
+            <h1
+              class="display-4 text-uppercase text-primary"
+              style="margin-left: 2rem"
+            >
               Sankalp<span class="text-secondary font-weight-normal"
                 >Digital News</span
               >
             </h1>
           </a>
-        </div>
-        <div class="col-lg-8 text-center text-lg-right">
-          <a href="https://htmlcodex.com"
-            ><img class="img-fluid" src="img/ads-728x90.png" alt=""
-          /></a>
         </div>
       </div>
     </div>
@@ -137,12 +184,22 @@
           id="navbarCollapse"
         >
           <div class="navbar-nav mr-auto py-0">
-            <a href="index.html" class="nav-item nav-link">Home</a>
-            <a href="category.html" class="nav-item nav-link">Category</a>
-            <a href="single.html" class="nav-item nav-link active"
-              >Single News</a
-            >
-            <div class="nav-item dropdown">
+            <a href="index.html" class="nav-item try">
+              <img
+                src="img/logo-removebg-preview.png"
+                style="
+                  height: 90px;
+                  width: 150px;
+                  margin-bottom: 0.8rem;
+                  margin-left: 0.5rem;
+                "
+              />
+            </a>
+            <a href="index.html" class="nav-item nav-link active">Home</a>
+            <!-- <a href="category.html" class="nav-item nav-link">Category</a> -->
+            <!-- <a href="single.html" class="nav-item nav-link">Single News</a> -->
+
+            <!-- <div class="nav-item dropdown">
               <a
                 href="#"
                 class="nav-link dropdown-toggle"
@@ -154,7 +211,7 @@
                 <a href="#" class="dropdown-item">Menu item 2</a>
                 <a href="#" class="dropdown-item">Menu item 3</a>
               </div>
-            </div>
+            </div> -->
             <!-- <a href="contact.html" class="nav-item nav-link">Contact</a> -->
           </div>
           <div
@@ -189,7 +246,7 @@
                 class="section-title border-right-0 mb-0"
                 style="width: 180px"
               >
-                <h4 class="m-0 text-uppercase font-weight-bold">Tranding</h4>
+                <h4 class="m-0 text-uppercase font-weight-bold">Trending</h4>
               </div>
               <div
                 class="owl-carousel tranding-carousel position-relative d-inline-flex align-items-center bg-white border border-left-0"
@@ -469,7 +526,7 @@
                   Cricket Live Score
                 </h4>
               </div>
-              <div class="bg-white border border-top-0 p-3">
+              <div class="bg-white border-top-0 p-3">
                 <p class="head" style="text-align: center; padding-top: 1rem">
                   Cricket World Cup 2019
                   <span class="right day">Yesterday</span>
@@ -493,29 +550,71 @@
                     </td>
                   </tr>
                 </table>
-                <center>
-                  <p class="target"><u>Target 302</u></p>
-                  <p class="res">India won by 89 runs (DLS method)</p>
-                  <p class="match">ODI 22 of 38</p>
-                </center>
               </div>
             </div>
-            <!-- Social Follow End -->
 
-            <!-- Ads Start -->
-            <!-- <div class="mb-3">
+            <div class="mb-3">
               <div class="section-title mb-0">
-                <h4 class="m-0 text-uppercase font-weight-bold">
-                  Advertisement
-                </h4>
+                <h4 class="m-0 text-uppercase font-weight-bold">Follow Us</h4>
               </div>
-              <div class="bg-white text-center border border-top-0 p-3">
-                <a href=""
-                  ><img class="img-fluid" src="img/news-800x500-2.jpg" alt=""
-                /></a>
+              <a
+                href=""
+                class="d-block w-100 text-white text-decoration-none mb-3"
+                style="background: #dc472e"
+              >
+                <i
+                  class="fab fa-youtube text-center py-4 mr-3"
+                  style="width: 65px; background: rgba(0, 0, 0, 0.2)"
+                ></i>
+                <span class="font-weight-medium">12,345 Subscribers</span>
+              </a>
+              <a
+                href=""
+                class="d-block w-100 text-white text-decoration-none mb-3"
+                style="background: #c8359d"
+              >
+                <i
+                  class="fab fa-instagram text-center py-4 mr-3"
+                  style="width: 65px; background: rgba(0, 0, 0, 0.2)"
+                ></i>
+                <span class="font-weight-medium">12,345 Followers</span>
+              </a>
+              <div class="bg-white border-top-0 p-3">
+                <a
+                  href=""
+                  class="d-block w-100 text-white text-decoration-none mb-3"
+                  style="background: #39569e"
+                >
+                  <i
+                    class="fab fa-facebook-f text-center py-4 mr-3"
+                    style="width: 65px; background: rgba(0, 0, 0, 0.2)"
+                  ></i>
+                  <span class="font-weight-medium">12,345 Fans</span>
+                </a>
+                <a
+                  href=""
+                  class="d-block w-100 text-white text-decoration-none mb-3"
+                  style="background: #52aaf4"
+                >
+                  <i
+                    class="fab fa-twitter text-center py-4 mr-3"
+                    style="width: 65px; background: rgba(0, 0, 0, 0.2)"
+                  ></i>
+                  <span class="font-weight-medium">12,345 Followers</span>
+                </a>
+                <a
+                  href=""
+                  class="d-block w-100 text-white text-decoration-none mb-3"
+                  style="background: #0185ae"
+                >
+                  <i
+                    class="fab fa-linkedin-in text-center py-4 mr-3"
+                    style="width: 65px; background: rgba(0, 0, 0, 0.2)"
+                  ></i>
+                  <span class="font-weight-medium">12,345 Connects</span>
+                </a>
               </div>
-            </div> -->
-            <!-- Ads End -->
+            </div>
 
             <!-- Popular News Start -->
             <div class="mb-3" style="margin-bottom: 0px">
@@ -732,6 +831,7 @@
             <!-- Popular News End -->
 
             <!-- Newsletter Start -->
+            <!--  -->
             <!-- Newsletter End -->
 
             <!-- Tags Start -->
@@ -766,14 +866,6 @@
                   </ul>
                   <ul class="days"></ul>
                 </div>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <div class="section-title mb-0">
-                <h4 class="m-0 text-uppercase font-weight-bold">
-                  Advertisement
-                </h4>
               </div>
             </div>
             <!-- Tags End -->
@@ -907,7 +999,7 @@
             </p>
             <div
               class="input-group mb-2"
-              style="width: 100%; position: relative; margin-top: 2.5rem"
+              style="width: 90%; position: relative; margin-top: 2.5rem"
             >
               <input
                 type="text"
@@ -920,11 +1012,35 @@
                 </button>
               </div>
             </div>
-            <small style="top: 1rem; position: relative"
+            <small style="top: 1rem; position: relative; left: -1.5rem"
               >Lorem ipsum dolor sit amet elit</small
             >
           </div>
         </div>
+
+        <!-- <div class="col-lg-3 col-md-6 mb-5"> 
+                <h5 class="mb-4 text-white text-uppercase font-weight-bold">Flickr Photos</h5>
+                <div class="row">
+                    <div class="col-4 mb-3">
+                        <a href=""><img class="w-100" src="img/news-110x110-1.jpg" alt=""></a>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <a href=""><img class="w-100" src="img/news-110x110-2.jpg" alt=""></a>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <a href=""><img class="w-100" src="img/news-110x110-3.jpg" alt=""></a>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <a href=""><img class="w-100" src="img/news-110x110-4.jpg" alt=""></a>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <a href=""><img class="w-100" src="img/news-110x110-5.jpg" alt=""></a>
+                    </div>
+                    <div class="col-4 mb-3">
+                        <a href=""><img class="w-100" src="img/news-110x110-1.jpg" alt=""></a>
+                    </div>
+                </div>
+            </div> -->
       </div>
     </div>
     <div
