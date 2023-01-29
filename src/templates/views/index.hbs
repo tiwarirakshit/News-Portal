@@ -9,7 +9,7 @@
   <meta content="Free HTML Templates" name="description" />
 
   <!-- Favicon -->
-  <link href="img/favicon.ico" rel="icon" />
+  <link href="/img/favicon.ico" rel="icon" />
 
   <!-- Google Web Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -22,11 +22,12 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet" />
 
   <!-- Libraries Stylesheet -->
-  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+  <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
 
   <!-- Customized Bootstrap Stylesheet -->
   <link href="/css/style.css" rel="stylesheet" />
-  <script src="/js/try.js" defer></script>
+  <script language="JavaScript" type="text/javascript" src="/js/try.js" defer></script>
+  <script language="JavaScript" type="text/javascript" src="/js/custom.js" defer></script>
 </head>
 
 <body>
@@ -37,18 +38,18 @@
         <nav class="navbar navbar-expand-sm bg-dark p-0">
           <ul class="navbar-nav ml-n2">
             <li class="nav-item border-right border-secondary">
-              <a class="nav-link text-body small" href="#" type="date">
-                Monday, January 1, 2045</a>
+              <a class="nav-link text-body small" href="/" id="nav_date">
+              </a>
             </li>
             <li class="nav-item border-right border-secondary">
-              <a class="nav-link text-body small" href="#">Advertise</a>
+              <a class="nav-link text-body small" href="/getContact">contact</a>
             </li>
-            <li class="nav-item border-right border-secondary">
-              <a class="nav-link text-body small" href="#">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-body small" href="#">Login</a>
-            </li>
+            <!-- <li class="nav-item border-right border-secondary">
+                <a class="nav-link text-body small" href="#">Contact</a>
+              </li> -->
+            {{!-- <li class="nav-item">
+              <a class="nav-link text-body small" href="/">Login</a>
+            </li> --}}
           </ul>
         </nav>
       </div>
@@ -56,37 +57,30 @@
         <nav class="navbar navbar-expand-sm bg-dark p-0">
           <ul class="navbar-nav ml-auto mr-n2">
             <li class="nav-item">
-              <a class="nav-link text-body" href="#"><small class="fab fa-twitter"></small></a>
+              <a class="nav-link text-body" href="#"><small class="fab fa-youtube yt"></small>
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-body" href="#"><small class="fab fa-facebook-f"></small></a>
+              <a class="nav-link text-body" href="#"><small class="fab fa-instagram in"></small></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-body" href="#"><small class="fab fa-linkedin-in"></small></a>
+              <a class="nav-link text-body" href="#"><small class="fab fa-twitter tw"></small></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-body" href="#"><small class="fab fa-instagram"></small></a>
+              <a class="nav-link text-body" href="#"><small class="fab fa-facebook-f fb"></small></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-body" href="#"><small class="fab fa-google-plus-g"></small></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-body" href="#"><small class="fab fa-youtube"></small></a>
+              <a class="nav-link text-body" href="#"><small class="fab fa-linkedin-in li"></small></a>
             </li>
           </ul>
         </nav>
       </div>
     </div>
-    <div class="row align-items-center bg-white py-3 px-lg-5">
-      <div class="col-lg-4">
-        <a href="index.html" class="navbar-brand p-0 d-none d-lg-block">
-          <h1 class="m-0 display-4 text-uppercase text-primary">
-            Sankalp<span class="text-secondary font-weight-normal">Digital News</span>
-          </h1>
+    <div class="row align-items-center bg-white" style="padding-top: 0.5rem; padding-bottom: 0.5rem">
+      <div class="col-sm-1">
+        <a href="/">
+          <img src="/img/logo.jpeg" style="height: 100px; width: 150px; margin-left: 2rem" />
         </a>
-      </div>
-      <div class="col-lg-8 text-center text-lg-right">
-        <a href="https://htmlcodex.com"><img class="img-fluid" src="/img/ads-728x90.png" alt="" /></a>
       </div>
     </div>
   </div>
@@ -95,7 +89,7 @@
   <!-- Navbar Start -->
   <div class="container-fluid p-0">
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-2 py-lg-0 px-lg-5">
-      <a href="index.html" class="navbar-brand d-block d-lg-none">
+      <a href="/" class="navbar-brand d-block d-lg-none">
         <h1 class="m-0 display-4 text-uppercase text-primary">
           Biz<span class="text-white font-weight-normal">News</span>
         </h1>
@@ -105,27 +99,41 @@
       </button>
       <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
         <div class="navbar-nav mr-auto py-0">
-          <a href="index.html" class="nav-item nav-link active">Home</a>
-          <a href="category.html" class="nav-item nav-link">Category</a>
-          <a href="single.html" class="nav-item nav-link">Single News</a>
-          <div class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dropdown</a>
-            <div class="dropdown-menu rounded-0 m-0">
-              <a href="#" class="dropdown-item">Menu item 1</a>
-              <a href="#" class="dropdown-item">Menu item 2</a>
-              <a href="#" class="dropdown-item">Menu item 3</a>
-            </div>
-          </div>
-          <a href="contact.html" class="nav-item nav-link">Contact</a>
+          <a href="/" class="nav-item try">
+            <img src="/img/logo-removebg-preview.png" style="
+                  height: 90px;
+                  width: 150px;
+                  margin-bottom: 0.8rem;
+                  margin-left: 0.5rem;
+                " />
+          </a>
+          <a href="/" class="nav-item nav-link active">Home</a>
+          <!-- <a href="category.html" class="nav-item nav-link">Category</a> -->
+          <!-- <a href="single.html" class="nav-item nav-link">Single News</a> -->
+
+          <!-- <div class="nav-item dropdown">
+              <a
+                href="#"
+                class="nav-link dropdown-toggle"
+                data-toggle="dropdown"
+                >Dropdown</a
+              >
+              <div class="dropdown-menu rounded-0 m-0">
+                <a href="#" class="dropdown-item">Menu item 1</a>
+                <a href="#" class="dropdown-item">Menu item 2</a>
+                <a href="#" class="dropdown-item">Menu item 3</a>
+              </div>
+            </div> -->
+          <!-- <a href="contact.html" class="nav-item nav-link">Contact</a> -->
         </div>
-        <div class="input-group ml-auto d-none d-lg-flex" style="width: 100%; max-width: 300px">
+        {{!-- <div class="input-group ml-auto d-none d-lg-flex" style="width: 100%; max-width: 300px">
           <input type="text" class="form-control border-0" placeholder="Keyword" />
           <div class="input-group-append">
             <button class="input-group-text bg-primary text-dark border-0 px-3">
               <i class="fa fa-search"></i>
             </button>
           </div>
-        </div>
+        </div> --}}
       </div>
     </nav>
   </div>
@@ -138,38 +146,18 @@
         <div class="owl-carousel main-carousel position-relative">
           {{#each latestNews}}
           <div class="position-relative overflow-hidden" style="height: 800px">
-            <img class="img-fluid h-100" src="" style="object-fit: cover" />
+            <img class="img-fluid h-100" src="/{{this.image}}" style="object-fit: cover" />
             <div class="overlay">
               <div class="mb-2">
-                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" href="">Latest</a>
-                <a class="text-white" href="">{{this.date}}</a>
+                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                  href="">{{this.category}}</a>
+                <a class="text-white" href="">
+                  {{this.formattedDate}}
+                </a>
               </div>
-              <a class="h2 m-0 text-white text-uppercase font-weight-bold"
-                href="/getNewsByTitle/{{this.title}}">{{this.title}}</a>
+              <a class="h2 m-0 text-white text-uppercase font-weight-bold" href="">{{this.description}}</a>
             </div>
           </div>
-          {{!-- <div class="position-relative overflow-hidden" style="height: 800px">
-            <img class="img-fluid h-100" src="/img/news-800x500-2.jpg" style="object-fit: cover" />
-            <div class="overlay">
-              <div class="mb-2">
-                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" href="">Business</a>
-                <a class="text-white" href="">Jan 01, 2045</a>
-              </div>
-              <a class="h2 m-0 text-white text-uppercase font-weight-bold" href="">Lorem ipsum dolor sit amet elit.
-                Proin vitae porta diam...</a>
-            </div>
-          </div> --}}
-          {{!-- <div class="position-relative overflow-hidden" style="height: 800px">
-            <img class="img-fluid h-100" src="/img/news-800x500-3.jpg" style="object-fit: cover" />
-            <div class="overlay">
-              <div class="mb-2">
-                <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" href="">Business</a>
-                <a class="text-white" href="">Jan 01, 2045</a>
-              </div>
-              <a class="h2 m-0 text-white text-uppercase font-weight-bold" href="">Lorem ipsum dolor sit amet elit.
-                Proin vitae porta diam...</a>
-            </div>
-          </div> --}}
           {{/each}}
         </div>
       </div>
@@ -179,56 +167,18 @@
           {{#each latestNews}}
           <div class="col-md-6 px-0">
             <div class="position-relative overflow-hidden" style="height: 400px">
-              <img class="img-fluid w-100 h-100" src="" style="object-fit: cover" />
+              <img class="img-fluid w-100 h-100" src="/{{this.image}}" style="object-fit: cover" />
               <div class="overlay">
                 <div class="mb-2">
-                  <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" href="">Latest</a>
-                  <a class="text-white" href=""><small>{{this.date}}</small></a>
+                  <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                    href="/getNewsByTitle/{{this.title}}">{{this.category}}</a>
+                  <a class="text-white" href=""><small>{{this.formattedDate}}</small></a>
                 </div>
                 <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold"
-                  href="/getNewsByTitle/{{this.title}}">{{this.title}}</a>
+                  href="/getNewsByTitle/{{this.title}}">{{this.description}}</a>
               </div>
             </div>
           </div>
-          {{!-- <div class="col-md-6 px-0">
-            <div class="position-relative overflow-hidden" style="height: 400px">
-              <img class="img-fluid w-100 h-100" src="/img/news-700x435-2.jpg" style="object-fit: cover" />
-              <div class="overlay">
-                <div class="mb-2">
-                  <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" href="">Business</a>
-                  <a class="text-white" href=""><small>Jan 01, 2045</small></a>
-                </div>
-                <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">Lorem ipsum dolor sit amet
-                  elit...</a>
-              </div>
-            </div>
-          </div> --}}
-          {{!-- <div class="col-md-6 px-0">
-            <div class="position-relative overflow-hidden" style="height: 400px">
-              <img class="img-fluid w-100 h-100" src="/img/news-700x435-3.jpg" style="object-fit: cover" />
-              <div class="overlay">
-                <div class="mb-2">
-                  <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" href="">Business</a>
-                  <a class="text-white" href=""><small>Jan 01, 2045</small></a>
-                </div>
-                <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">Lorem ipsum dolor sit amet
-                  elit...</a>
-              </div>
-            </div>
-          </div> --}}
-          {{!-- <div class="col-md-6 px-0">
-            <div class="position-relative overflow-hidden" style="height: 400px">
-              <img class="img-fluid w-100 h-100" src="/img/news-700x435-4.jpg" style="object-fit: cover" />
-              <div class="overlay">
-                <div class="mb-2">
-                  <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" href="">Business</a>
-                  <a class="text-white" href=""><small>Jan 01, 2045</small></a>
-                </div>
-                <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">Lorem ipsum dolor sit amet
-                  elit...</a>
-              </div>
-            </div>
-          </div> --}}
           {{/each}}
         </div>
       </div>
@@ -247,16 +197,13 @@
             </div>
             <div class="owl-carousel tranding-carousel position-relative d-inline-flex align-items-center ml-3"
               style="width: calc(100% - 170px); padding-right: 90px">
+              {{#each latestNews}}
               <div class="text-truncate">
-                <a class="text-white text-uppercase font-weight-semi-bold" href="">Lorem ipsum dolor sit amet elit.
-                  Proin interdum lacus eget
-                  ante tincidunt, sed faucibus nisl sodales</a>
+                <a class="text-white text-uppercase font-weight-semi-bold" href="/getNewsByTitle/{{this.title}}">
+                  {{this.title}}
+                </a>
               </div>
-              <div class="text-truncate">
-                <a class="text-white text-uppercase font-weight-semi-bold" href="">Lorem ipsum dolor sit amet elit.
-                  Proin interdum lacus eget
-                  ante tincidunt, sed faucibus nisl sodales</a>
-              </div>
+              {{/each}}
             </div>
           </div>
         </div>
@@ -274,62 +221,21 @@
         <h4 class="m-0 text-uppercase font-weight-bold">Featured News</h4>
       </div>
 
-      <div class="owl-carousel news-carousel carousel-item-4 position-relative">
+      <div class="owl-carousel news-carousel carousel-item-4 position-relative" href="/">
+        {{#each featuredNews}}
         <div class="position-relative overflow-hidden" style="height: 300px">
-          <img class="img-fluid h-100" src="/img/news-700x435-1.jpg" style="object-fit: cover" />
+          <a href="">
+            <img class="img-fluid h-100" src="/{{this.image}}" style="object-fit: cover" />
+          </a>
           <div class="overlay">
             <div class="mb-2">
-              <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" href="">Business</a>
-              <a class="text-white" href=""><small>Jan 01, 2045</small></a>
+              <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" href="">{{this.category}}</a>
+              <a class="text-white" href=""><small>{{this.formattedDate}}</small></a>
             </div>
-            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">Lorem ipsum dolor sit amet
-              elit...</a>
+            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">{{this.description}}</a>
           </div>
         </div>
-        <div class="position-relative overflow-hidden" style="height: 300px">
-          <img class="img-fluid h-100" src="/img/news-700x435-2.jpg" style="object-fit: cover" />
-          <div class="overlay">
-            <div class="mb-2">
-              <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" href="">Business</a>
-              <a class="text-white" href=""><small>Jan 01, 2045</small></a>
-            </div>
-            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">Lorem ipsum dolor sit amet
-              elit...</a>
-          </div>
-        </div>
-        <div class="position-relative overflow-hidden" style="height: 300px">
-          <img class="img-fluid h-100" src="/img/news-700x435-3.jpg" style="object-fit: cover" />
-          <div class="overlay">
-            <div class="mb-2">
-              <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" href="">Business</a>
-              <a class="text-white" href=""><small>Jan 01, 2045</small></a>
-            </div>
-            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">Lorem ipsum dolor sit amet
-              elit...</a>
-          </div>
-        </div>
-        <div class="position-relative overflow-hidden" style="height: 300px">
-          <img class="img-fluid h-100" src="/img/news-700x435-4.jpg" style="object-fit: cover" />
-          <div class="overlay">
-            <div class="mb-2">
-              <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" href="">Business</a>
-              <a class="text-white" href=""><small>Jan 01, 2045</small></a>
-            </div>
-            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">Lorem ipsum dolor sit amet
-              elit...</a>
-          </div>
-        </div>
-        <div class="position-relative overflow-hidden" style="height: 300px">
-          <img class="img-fluid h-100" src="/img/news-700x435-5.jpg" style="object-fit: cover" />
-          <div class="overlay">
-            <div class="mb-2">
-              <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" href="">Business</a>
-              <a class="text-white" href=""><small>Jan 01, 2045</small></a>
-            </div>
-            <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">Lorem ipsum dolor sit amet
-              elit...</a>
-          </div>
-        </div>
+        {{/each}}
       </div>
     </div>
   </div>
@@ -350,239 +256,34 @@
               </div>
             </div>
 
+            {{#each latestNews}}
             <div class="col-lg-6">
               <div class="position-relative mb-3">
-                <img class="img-fluid w-100" src="/img/news-700x435-1.jpg" style="object-fit: cover" />
+                <img class="img-fluid w-100" src="/{{this.image}}" style="object-fit: cover" />
                 <div class="bg-white border border-top-0 p-4">
                   <div class="mb-2">
-                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" href="">Business</a>
-                    <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
+                      href="">{{this.category}}</a>
+                    <a class="text-body" href=""><small>{{this.formattedDate}}</small></a>
                   </div>
-                  <a class="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold" href="">Lorem ipsum dolor
-                    sit amet elit...</a>
+                  <a class="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold" href="">{{this.title}}</a>
                   <p class="m-0">
-                    Dolor lorem eos dolor duo et eirmod sea. Dolor sit magna
-                    rebum clita rebum dolor stet amet justo
+                    {{this.description}}
                   </p>
                 </div>
                 <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
                   <div class="d-flex align-items-center">
-                    <img class="rounded-circle mr-2" src="img/user.jpg" width="25" height="25" alt="" />
-                    <small>John Doe</small>
-                  </div>
-                  <div class="d-flex align-items-center">
-                    <small class="ml-3"><i class="far fa-eye mr-2"></i>12345</small>
-                    <small class="ml-3"><i class="far fa-comment mr-2"></i>123</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="position-relative mb-3">
-                <img class="img-fluid w-100" src="/img/news-700x435-2.jpg" style="object-fit: cover" />
-                <div class="bg-white border border-top-0 p-4">
-                  <div class="mb-2">
-                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" href="">Business</a>
-                    <a class="text-body" href=""><small>Jan 01, 2045</small></a>
-                  </div>
-                  <a class="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold" href="">Lorem ipsum dolor
-                    sit amet elit...</a>
-                  <p class="m-0">
-                    Dolor lorem eos dolor duo et eirmod sea. Dolor sit magna
-                    rebum clita rebum dolor stet amet justo
-                  </p>
-                </div>
-                <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
-                  <div class="d-flex align-items-center">
-                    <img class="rounded-circle mr-2" src="img/user.jpg" width="25" height="25" alt="" />
-                    <small>John Doe</small>
-                  </div>
-                  <div class="d-flex align-items-center">
-                    <small class="ml-3"><i class="far fa-eye mr-2"></i>12345</small>
-                    <small class="ml-3"><i class="far fa-comment mr-2"></i>123</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-12 mb-3">
-              <a href=""><img class="img-fluid w-100" src="img/ads-728x90.png" alt="" /></a>
-            </div>
-            <div class="col-lg-6">
-              <div class="position-relative mb-3">
-                <img class="img-fluid w-100" src="/img/news-700x435-3.jpg" style="object-fit: cover" />
-                <div class="bg-white border border-top-0 p-4">
-                  <div class="mb-2">
-                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" href="">Business</a>
-                    <a class="text-body" href=""><small>Jan 01, 2045</small></a>
-                  </div>
-                  <a class="h4 d-block mb-0 text-secondary text-uppercase font-weight-bold" href="">Lorem ipsum dolor
-                    sit amet elit...</a>
-                </div>
-                <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
-                  <div class="d-flex align-items-center">
                     <img class="rounded-circle mr-2" src="/img/user.jpg" width="25" height="25" alt="" />
-                    <small>John Doe</small>
-                  </div>
-                  <div class="d-flex align-items-center">
-                    <small class="ml-3"><i class="far fa-eye mr-2"></i>12345</small>
-                    <small class="ml-3"><i class="far fa-comment mr-2"></i>123</small>
+                    <small>{{this.author}}</small>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-lg-6">
-              <div class="position-relative mb-3">
-                <img class="img-fluid w-100" src="/img/news-700x435-4.jpg" style="object-fit: cover" />
-                <div class="bg-white border border-top-0 p-4">
-                  <div class="mb-2">
-                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" href="">Business</a>
-                    <a class="text-body" href=""><small>Jan 01, 2045</small></a>
-                  </div>
-                  <a class="h4 d-block mb-0 text-secondary text-uppercase font-weight-bold" href="">Lorem ipsum dolor
-                    sit amet elit...</a>
-                </div>
-                <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
-                  <div class="d-flex align-items-center">
-                    <img class="rounded-circle mr-2" src="/img/user.jpg" width="25" height="25" alt="" />
-                    <small>John Doe</small>
-                  </div>
-                  <div class="d-flex align-items-center">
-                    <small class="ml-3"><i class="far fa-eye mr-2"></i>12345</small>
-                    <small class="ml-3"><i class="far fa-comment mr-2"></i>123</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="d-flex align-items-center bg-white mb-3" style="height: 110px">
-                <img class="img-fluid" src="/img/news-110x110-1.jpg" alt="" />
-                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                  <div class="mb-2">
-                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Business</a>
-                    <a class="text-body" href=""><small>Jan 01, 2045</small></a>
-                  </div>
-                  <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="">Lorem ipsum dolor sit amet
-                    elit...</a>
-                </div>
-              </div>
-              <div class="d-flex align-items-center bg-white mb-3" style="height: 110px">
-                <img class="img-fluid" src="/img/news-110x110-2.jpg" alt="" />
-                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                  <div class="mb-2">
-                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Business</a>
-                    <a class="text-body" href=""><small>Jan 01, 2045</small></a>
-                  </div>
-                  <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="">Lorem ipsum dolor sit amet
-                    elit...</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="d-flex align-items-center bg-white mb-3" style="height: 110px">
-                <img class="img-fluid" src="/img/news-110x110-3.jpg" alt="" />
-                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                  <div class="mb-2">
-                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Business</a>
-                    <a class="text-body" href=""><small>Jan 01, 2045</small></a>
-                  </div>
-                  <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="">Lorem ipsum dolor sit amet
-                    elit...</a>
-                </div>
-              </div>
-              <div class="d-flex align-items-center bg-white mb-3" style="height: 110px">
-                <img class="img-fluid" src="/img/news-110x110-4.jpg" alt="" />
-                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                  <div class="mb-2">
-                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Business</a>
-                    <a class="text-body" href=""><small>Jan 01, 2045</small></a>
-                  </div>
-                  <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="">Lorem ipsum dolor sit amet
-                    elit...</a>
-                </div>
-              </div>
-            </div>
+            {{/each}}
             <div class="col-lg-12 mb-3">
-              <a href=""><img class="img-fluid w-100" src="/img/ads-728x90.png" alt="" /></a>
+              <a href=""><img class="img-fluid w-100" src="/img/ads.png" alt="not find" /></a>
             </div>
-            <div class="col-lg-12">
-              <div class="row news-lg mx-0 mb-3">
-                <div class="col-md-6 h-100 px-0">
-                  <img class="img-fluid h-100" src="/img/news-700x435-5.jpg" style="object-fit: cover" />
-                </div>
-                <div class="col-md-6 d-flex flex-column border bg-white h-100 px-0">
-                  <div class="mt-auto p-4">
-                    <div class="mb-2">
-                      <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" href="">Business</a>
-                      <a class="text-body" href=""><small>Jan 01, 2045</small></a>
-                    </div>
-                    <a class="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold" href="">Lorem ipsum dolor
-                      sit amet elit...</a>
-                    <p class="m-0">
-                      Dolor lorem eos dolor duo et eirmod sea. Dolor sit magna
-                      rebum clita rebum dolor stet amet justo
-                    </p>
-                  </div>
-                  <div class="d-flex justify-content-between bg-white border-top mt-auto p-4">
-                    <div class="d-flex align-items-center">
-                      <img class="rounded-circle mr-2" src="/img/user.jpg" width="25" height="25" alt="" />
-                      <small>John Doe</small>
-                    </div>
-                    <div class="d-flex align-items-center">
-                      <small class="ml-3"><i class="far fa-eye mr-2"></i>12345</small>
-                      <small class="ml-3"><i class="far fa-comment mr-2"></i>123</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="d-flex align-items-center bg-white mb-3" style="height: 110px">
-                <img class="img-fluid" src="/img/news-110x110-1.jpg" alt="" />
-                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                  <div class="mb-2">
-                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Business</a>
-                    <a class="text-body" href=""><small>Jan 01, 2045</small></a>
-                  </div>
-                  <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="">Lorem ipsum dolor sit amet
-                    elit...</a>
-                </div>
-              </div>
-              <div class="d-flex align-items-center bg-white mb-3" style="height: 110px">
-                <img class="img-fluid" src="/img/news-110x110-2.jpg" alt="" />
-                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                  <div class="mb-2">
-                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Business</a>
-                    <a class="text-body" href=""><small>Jan 01, 2045</small></a>
-                  </div>
-                  <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="">Lorem ipsum dolor sit amet
-                    elit...</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="d-flex align-items-center bg-white mb-3" style="height: 110px">
-                <img class="img-fluid" src="/img/news-110x110-3.jpg" alt="" />
-                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                  <div class="mb-2">
-                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Business</a>
-                    <a class="text-body" href=""><small>Jan 01, 2045</small></a>
-                  </div>
-                  <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="">Lorem ipsum dolor sit amet
-                    elit...</a>
-                </div>
-              </div>
-              <div class="d-flex align-items-center bg-white mb-3" style="height: 110px">
-                <img class="img-fluid" src="/img/news-110x110-4.jpg" alt="" />
-                <div class="w-100 h-100 px-3 d-flex flex-column justify-content-center border border-left-0">
-                  <div class="mb-2">
-                    <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Business</a>
-                    <a class="text-body" href=""><small>Jan 01, 2045</small></a>
-                  </div>
-                  <a class="h6 m-0 text-secondary text-uppercase font-weight-bold" href="">Lorem ipsum dolor sit amet
-                    elit...</a>
-                </div>
-              </div>
-            </div>
+
           </div>
         </div>
 
@@ -594,7 +295,7 @@
                 Cricket Live Score
               </h4>
             </div>
-            <div class="bg-white border border-top-0 p-3">
+            <div class="bg-white border-top-0 p-3">
               <p class="head" style="text-align: center; padding-top: 1rem">
                 Cricket World Cup 2019
                 <span class="right day">Yesterday</span>
@@ -608,26 +309,45 @@
                     <p class="overs">(50)</p>
                   </td>
                   <td class="right1">
-                    <span style="padding-right: 0.5rem">PAK</span>&emsp;<img class="flag" src="img/pakistan.png"
+                    <span style="padding-right: 0.5rem">PAK</span>&emsp;<img class="flag" src="/img/pakistan.png"
                       alt="" />
                     <p class="score pak">212/6</p>
                     <p class="overs pak">(40)</p>
                   </td>
                 </tr>
               </table>
-              <center>
-                <p class="target"><u>Target 302</u></p>
-                <p class="res">India won by 89 runs (DLS method)</p>
-                <p class="match">ODI 22 of 38</p>
-              </center>
             </div>
           </div>
 
           <div class="mb-3">
             <div class="section-title mb-0">
-              <h4 class="m-0 text-uppercase font-weight-bold">
-                Advertisement
-              </h4>
+              <h4 class="m-0 text-uppercase font-weight-bold">Follow Us</h4>
+            </div>
+            <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #DC472E;">
+              <i class="fab fa-youtube text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+              <span class="font-weight-medium">12,345 Subscribers</span>
+            </a>
+            <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #C8359D;">
+              <i class="fab fa-instagram text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+              <span class="font-weight-medium">12,345 Followers</span>
+            </a>
+            <div class="bg-white border-top-0 p-3">
+              <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #39569E;">
+                <i class="fab fa-facebook-f text-center py-4 mr-3"
+                  style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+                <span class="font-weight-medium">12,345 Fans</span>
+              </a>
+              <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #52AAF4;">
+                <i class="fab fa-twitter text-center py-4 mr-3" style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+                <span class="font-weight-medium">12,345 Followers</span>
+              </a>
+              <a href="" class="d-block w-100 text-white text-decoration-none mb-3" style="background: #0185AE;">
+                <i class="fab fa-linkedin-in text-center py-4 mr-3"
+                  style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
+                <span class="font-weight-medium">12,345 Connects</span>
+              </a>
+
+
             </div>
           </div>
 
@@ -839,17 +559,15 @@
             Aliqu justo et labore at eirmod justo sea erat diam dolor diam
             vero kasd
           </p>
-          <div class="input-group mb-2" style="width: 100%; position: relative; margin-top: 2.5rem">
-            <form method="post" action="/subscribe">
-              <input type="email" class="form-control form-control-lg" name="email" placeholder="Your Email" />
-              <div class="input-group-append">
-                <button type="submit" class="btn btn-primary font-weight-bold px-3">
-                  Sign Up
-                </button>
-              </div>
-            </form>
+          <div class="input-group mb-2" style="width: 90%; position: relative; margin-top: 2.5rem;">
+            <input type="text" class="form-control form-control-lg" placeholder="Your Email" />
+            <div class="input-group-append">
+              <button class="btn btn-primary font-weight-bold px-3">
+                Sign Up
+              </button>
+            </div>
           </div>
-          <small style="top: 1rem; position: relative">Lorem ipsum dolor sit amet elit</small>
+          <small style="top: 1rem; position: relative;left:-1.5rem;">Lorem ipsum dolor sit amet elit</small>
         </div>
       </div>
 
@@ -878,6 +596,7 @@
             </div> -->
     </div>
   </div>
+
   <div class="container-fluid py-4 px-sm-3 px-md-5" style="background: #111111">
     <p class="m-0 text-center">
       &copy; <a href="#">Your Site Name</a>. All Rights Reserved.
@@ -892,11 +611,11 @@
   <a href="#" class="btn btn-primary btn-square back-to-top"><i class="fa fa-arrow-up"></i></a>
 
   <!-- JavaScript Libraries -->
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="js/main.js"></script>
+  <script src="/js/jquery-3.6.3.min.js"></script>
+  <script language="JavaScript" type="text/javascript" src="/js/bootstrap.bundle.min.js"></script>
+  <script language="JavaScript" type="text/javascript" src="/lib/easing/easing.min.js"></script>
+  <script language="JavaScript" type="text/javascript" src="/lib/owlcarousel/owl.carousel.min.js"></script>
+  <script language="JavaScript" type="text/javascript" src="/js/main.js"></script>
 
   <!-- Template Javascript -->
 </body>

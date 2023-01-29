@@ -7,7 +7,7 @@ import Contact, { ContactDocument } from '../models/contact.model';
 const createNews = async (news: NewsDocument) => {
   try {
 
-    const { title, description, category, image, date, author, videoLink } = news;
+    const { title, description, category, image, date, author, videoLink, latest, featured, trending } = news;
 
     const newNews = new NewsModel({
       title,
@@ -17,6 +17,9 @@ const createNews = async (news: NewsDocument) => {
       author,
       videoLink,
       category,
+      latest,
+      featured,
+      trending,
     });
 
     return await newNews.save();
@@ -112,7 +115,7 @@ const makeLatest = async (id: string) => {
 
 const getTrendingNews = async () => {
   try {
-    return await NewsModel.find({ Trending: true }).sort({ date: -1 }).limit(5);
+    return await NewsModel.find({ trending: true }).sort({ date: -1 }).limit(5);
   } catch (error: any) {
     throw new Error(error);
   }

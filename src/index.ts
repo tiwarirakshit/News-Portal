@@ -1,15 +1,16 @@
 import app from './app';
+import http from 'http';
 
 const port = Number(process.env.PORT);
 
 
 const start = (Port: number) => {
   try {
-    app.listen(Port, () => {
-      /* eslint-disable no-console */
+    let server: http.Server = http.createServer(app).listen(Port);
+    server.on('listening', () => {
       console.log(`Listening: http://localhost:${Port}`);
-      /* eslint-enable no-console */
     });
+
   } catch (error) {
     console.error(error);
     process.exit();

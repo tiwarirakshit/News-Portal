@@ -2,7 +2,7 @@ import { Router } from 'express';
 import multer from 'multer';
 
 import * as newsController from '../controllers/news.controllers';
-// import { authenticateAdmin } from '../middlewares/authenticate.admin';
+import { authenticateAdmin } from '../middlewares/authenticate.admin';
 import * as requestValidator from '../utils/validators/request.validator';
 import { storage } from '../middlewares/multer.middleware';
 import { multerFileTypeFilterForImage, MULTER_UPLOAD_SIZE_LIMIT } from '../utils/multer-utils';
@@ -11,7 +11,7 @@ const router = Router();
 
 const upload = multer({ storage: storage, limits: { fileSize: MULTER_UPLOAD_SIZE_LIMIT, files: 1 }, fileFilter: multerFileTypeFilterForImage });
 
-router.post('/createNews', upload.array('image', 5), requestValidator.createNews, newsController.createNews);
+router.post('/createNews', authenticateAdmin, upload.array('image', 5), requestValidator.createNews, newsController.createNews);
 
 router.get('/getNewsByTitle/:title', newsController.getNewsByTitle);
 

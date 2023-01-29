@@ -72,18 +72,20 @@ export async function loginAdmin(req: Request, res: Response) {
     return res.cookie('access_token', token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
-    }).status(200).render('create_news');
+    }).status(200).render('create_news', {
+      name: admin.name,
+    });
 
   } catch (error: any) {
     return res.status(500).render('login', { message: error.message });
   }
 }
 
-export async function logoutAdmin(req: Request, res: Response): Promise<Response<MessageResponse>> {
+export async function logoutAdmin(req: Request, res: Response) {
   try {
-    return res.clearCookie('access_token').status(200).json({ message: 'Logged out successfully 😊 👌' });
+    return res.clearCookie('access_token').status(200).render('login', { message: 'Logged out' });
   } catch (error: any) {
-    return res.status(500).json({ message: error.message });
+    return res.status(500).render('login', { message: error.message });
   }
 }
 
@@ -97,9 +99,11 @@ export async function getLoginPage(req: Request, res: Response) {
 
 export async function getCreateNewsPage(req: Request, res: Response) {
   try {
-    return res.status(200).render('create_news');
+    return res.status(200).render('create_news', {
+      name: res.locals.name,
+    });
   } catch (error: any) {
-    return res.status(500).json({ message: error.message });
+    return res.status(500).render('login', { message: error.message });
   }
 }
 

@@ -43,7 +43,7 @@ export async function createNews(req: Request, res: Response) {
     }
 
     let newNews: NewsDocument = {
-      title: title.split(' ').join('-'),
+      title: title.trim().split(' ').join('-'),
       description: description,
       image: images,
       date: new Date(),
@@ -75,10 +75,33 @@ export async function getNewsByTitle(req: Request, res: Response) {
 
     const news = await newsService.getNewsByTitle(title);
 
-    if (!!news == false) {
+    if (!news) {
       return res.status(404).redirect('back');
     } else {
-      return res.status(200).render('single', { news: news });
+
+      const trendingNews = await newsService.getTrendingNews();
+
+      const date = new Date(news.date);
+      const day = date.getDate();
+      const month = date.getMonth() + 1;
+      const year = date.getFullYear();
+      const formattedDate = day + '-' + month + '-' + year;
+
+      let result = {
+        _id: news._id,
+        title: news.title,
+        description: news.description,
+        image: news.image,
+        date: formattedDate,
+        category: news.category,
+        comments: news.comments,
+      };
+
+
+      return res.status(200).render('single', {
+        news: result,
+        trendingNews: trendingNews,
+      });
     }
 
   } catch (error: any) {
@@ -388,7 +411,65 @@ export async function getHomePage(req: Request, res: Response) {
     if (!resultLatestNews || !resultTrendingNews || !resultFeaturedNews) {
       return res.status(404).render('index', { message: 'News not found' });
     } else {
-      return res.status(200).render('index', { latestNews: resultLatestNews, trendingNews: resultTrendingNews, featuredNews: resultFeaturedNews });
+
+      let latestNews = [];
+
+      for (let i = 0; i < resultLatestNews.length; i++) {
+        // check date in DD-MM-YYYY format
+        const date = new Date(resultLatestNews[i].date);
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear();
+        const formattedDate = day + '-' + month + '-' + year;
+        latestNews.push({
+          title: resultLatestNews[i].title,
+          description: resultLatestNews[i].description,
+          image: resultLatestNews[i].image,
+          formattedDate: formattedDate,
+          category: resultLatestNews[i].category,
+          author: resultLatestNews[i].author,
+        });
+      }
+
+      let trendingNews = [];
+
+      for (let i = 0; i < resultTrendingNews.length; i++) {
+        // check date in DD-MM-YYYY format
+        const date = new Date(resultTrendingNews[i].date);
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear();
+        const formattedDate = day + '-' + month + '-' + year;
+        trendingNews.push({
+          title: resultTrendingNews[i].title,
+          description: resultTrendingNews[i].description,
+          image: resultTrendingNews[i].image,
+          formattedDate: formattedDate,
+          category: resultTrendingNews[i].category,
+          author: resultTrendingNews[i].author,
+        });
+      }
+
+      let featuredNews = [];
+
+      for (let i = 0; i < resultFeaturedNews.length; i++) {
+        // check date in DD-MM-YYYY format
+        const date = new Date(resultFeaturedNews[i].date);
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear();
+        const formattedDate = day + '-' + month + '-' + year;
+        featuredNews.push({
+          title: resultFeaturedNews[i].title,
+          description: resultFeaturedNews[i].description,
+          image: resultFeaturedNews[i].image,
+          formattedDate: formattedDate,
+          category: resultFeaturedNews[i].category,
+          author: resultFeaturedNews[i].author,
+        });
+      }
+
+      return res.status(200).render('index', { latestNews: latestNews, trendingNews: trendingNews, featuredNews: featuredNews });
     }
 
   } catch (error: any) {
@@ -460,9 +541,11 @@ export async function addComment(req: Request, res: Response) {
     const id = req.params.id;
     const { name, email, comment } = req.body;
 
+
     const news = await newsService.getNewsById(id);
+
     if (!news) {
-      return res.status(404).redirect('back');
+      return res.status(404).redirect('/');
     }
 
     const commentDocument: Comment = {
@@ -474,12 +557,12 @@ export async function addComment(req: Request, res: Response) {
     const newComment = await newsService.addComment(id, commentDocument);
 
     if (!newComment) {
-      return res.status(404).redirect('back');
+      return res.status(404).redirect('/getNewsByTitle' + news.title);
     } else {
-      return res.status(201).redirect('back');
+      return res.status(201).redirect('/getNewsByTitle/' + news.title);
     }
   } catch (error: any) {
-    return res.status(500).json({ message: error.message });
+    return res.status(500).redirect(req.originalUrl);
   }
 }
 
