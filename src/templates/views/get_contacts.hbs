@@ -136,91 +136,31 @@
         </nav>
         <div class="container-fluid">
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Get News</h1>
+          <h1 class="h3 mb-2 text-gray-800">Get Contacts</h1>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4" style="margin-top: 20px">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">News</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Contacts</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>News Title</th>
-                      <th>Category</th>
-                      <th>Image</th>
-                      <th>type of news</th>
-                      <th>Edit</th>
-                      <th>Delete</th>
-                      <th>Trending</th>
-                      <th>Latest</th>
-                      <th>Featured</th>
+                      <th>name</th>
+                      <th>email</th>
+                      <th>subject</th>
+                      <th>message</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {{#each news}}
+                    {{#each contacts}}
                     <tr>
-                      <td>{{this.title}}</td>
-                      <td>{{this.author}}</td>
-                      <td>
-                        {{#each this.image}}
-                        <img src="/{{this}}" alt="" width="100px" height="100px" />
-                        {{/each}}
-                      </td>
-                      <td>
-
-                        {{#if this.trending}}
-                        <span class="badge badge-success">Trending</span>
-                        {{#if this.latest}}
-                        <span class="badge badge-primary">Latest</span>
-                        {{/if}}
-                        {{#if this.featured}}
-                        <span class="badge badge-warning">Featured</span>
-                        {{/if}}
-
-                        {{else if this.latest}}
-                        <span class="badge badge-primary">Latest</span>
-                        {{#if this.trending}}
-                        <span class="badge badge-success">Trending</span>
-                        {{/if}}
-                        {{#if this.featured}}
-                        <span class="badge badge-warning">Featured</span>
-                        {{/if}}
-
-                        {{else if this.featured}}
-                        <span class="badge badge-warning">Featured</span>
-                        {{#if this.trending}}
-                        <span class="badge badge-success">Trending</span>
-                        {{/if}}
-                        {{#if this.latest}}
-                        <span class="badge badge-primary">Latest</span>
-                        {{/if}}
-                        {{else}}
-                        <span class="badge badge-danger">None</span>
-                        {{/if}}
-                      </td>
-                      <td>
-                        <a class="btn btn-success btn-xs" href="/getNewsUpdatePage/{{this._id}}">
-                          <i class="fa fa-edit"></i></a>
-                      </td>
-                      <td>
-                        <a class="btn btn-danger btn-xs" href="/deleteNews/{{this._id}}">
-                          <i class="fa fa-trash"></i></a>
-                      </td>
-                      <td>
-                        <a class="btn btn-primary btn-xs" href="/makeTrending/{{this._id}}">
-                          <i class="fa fa-check"></i></a>
-                      </td>
-                      <td>
-                        <a class="btn btn-primary btn-xs" href="/makeLatest/{{this._id}}">
-                          <i class="fa fa-check"></i></a>
-                      </td>
-                      <td>
-                        <a class="btn btn-primary btn-xs" href="/makeFeatured/{{this._id}}">
-                          <i class="fa fa-check"></i></a>
-                      </td>
+                      <td>{{this.name}}</td>
+                      <td>{{this.email}}</td>
+                      <td>{{this.subject}}</td>
+                      <td>{{this.message}}</td>
                     </tr>
                     {{/each}}
                   </tbody>

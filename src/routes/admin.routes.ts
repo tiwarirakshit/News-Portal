@@ -21,4 +21,6 @@ router.get('/getNews', authenticateAdmin, adminControllers.getNewsPage);
 
 router.get('/getNewsLetters', authenticateAdmin, adminControllers.getNewsLetterPage);
 
+router.get('/getContacts', authenticateAdmin, adminControllers.getContacts);
+
 export default router;

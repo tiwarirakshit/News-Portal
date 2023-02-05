@@ -111,9 +111,15 @@ export async function getNewsPage(req: Request, res: Response) {
   try {
     const news = await newsServices.getNews();
     if (news.length === 0) {
-      return res.status(200).render('get_news', { news: [], message: 'No news found' });
+      return res.status(200).render('get_news', {
+        news: [], message: 'No news found',
+        name: res.locals.name,
+      });
     } else {
-      return res.status(200).render('get_news', { news: news });
+      return res.status(200).render('get_news', {
+        news: news,
+        name: res.locals.name,
+      });
     }
   } catch (error: any) {
     return res.status(500).json({ message: error.message });
@@ -128,6 +134,22 @@ export async function getNewsLetterPage(req: Request, res: Response) {
       return res.status(404).render('Newsletter', { message: 'News not found' });
     } else {
       return res.status(200).render('Newsletter', { newsLetter: result });
+    }
+  } catch (error: any) {
+    return res.status(500).json({ message: error.message });
+  }
+}
+
+export async function getContacts(req: Request, res: Response) {
+  try {
+    const result = await adminServices.getContacts();
+    if (!result) {
+      return res.status(404).render('get_contacts', { message: 'Contacts not found' });
+    } else {
+      return res.status(200).render('get_contacts', {
+        contacts: result,
+        name: res.locals.name,
+      });
     }
   } catch (error: any) {
     return res.status(500).json({ message: error.message });

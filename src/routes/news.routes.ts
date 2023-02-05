@@ -17,11 +17,11 @@ router.get('/getNewsByTitle/:title', newsController.getNewsByTitle);
 
 router.get('/getNews', newsController.getNews);
 
-router.get('/makeTrending/:id', newsController.makeTrending);
+router.get('/makeTrending/:id', authenticateAdmin, newsController.makeTrending);
 
-router.get('/makeFeatured/:id', newsController.makeFeatured);
+router.get('/makeFeatured/:id', authenticateAdmin, newsController.makeFeatured);
 
-router.get('/makeLatest/:id', newsController.makeLatest);
+router.get('/makeLatest/:id', authenticateAdmin, newsController.makeLatest);
 
 router.get('/getNewsById/:id', newsController.getNewsById);
 
@@ -31,11 +31,11 @@ router.get('/getFeaturedNews', newsController.getFeaturedNews);
 
 router.get('/getLatestNews', newsController.getLatestNews);
 
-router.get('/deleteNews/:id', newsController.deleteNews);
+router.get('/deleteNews/:id', authenticateAdmin, newsController.deleteNews);
 
-router.get('/getNewsUpdatePage/:id', newsController.getNewUpdatePage);
+router.get('/getNewsUpdatePage/:id', authenticateAdmin, newsController.getNewUpdatePage);
 
-router.post('/updateNews/:id', requestValidator.updateNews, upload.array('image', 5), newsController.updateNews);
+router.post('/updateNews/:id', authenticateAdmin, requestValidator.updateNews, upload.array('image', 5), newsController.updateNews);
 
 // router for pages
 router.get('/', newsController.getHomePage);

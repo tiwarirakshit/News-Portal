@@ -115,7 +115,7 @@ const makeLatest = async (id: string) => {
 
 const getTrendingNews = async () => {
   try {
-    return await NewsModel.find({ trending: true }).sort({ date: -1 }).limit(5);
+    return await NewsModel.find({ trending: true }).sort({ date: -1 });
   } catch (error: any) {
     throw new Error(error);
   }
@@ -123,7 +123,7 @@ const getTrendingNews = async () => {
 
 const getLatestNews = async () => {
   try {
-    return await NewsModel.find({ latest: true }).sort({ date: -1 }).limit(5);
+    return await NewsModel.find({ latest: true }).sort({ date: -1 });
   } catch (error: any) {
     throw new Error(error);
   }
@@ -131,7 +131,7 @@ const getLatestNews = async () => {
 
 const getFeaturedNews = async () => {
   try {
-    return await NewsModel.find({ featured: true }).sort({ date: -1 }).limit(5);
+    return await NewsModel.find({ featured: true }).sort({ date: -1 });
   } catch (error: any) {
     throw new Error(error);
   }

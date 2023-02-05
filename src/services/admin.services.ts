@@ -1,6 +1,6 @@
 import { AdminDocument } from '../models/admin.model';
 import AdminModel from '../models/admin.model';
-
+import ContactModel from '../models/contact.model';
 
 const createAdmin = async (admin: AdminDocument) => {
   try {
@@ -32,8 +32,17 @@ const getAdminByEmail = async (email: string) => {
   }
 };
 
+const getContacts = async () => {
+  try {
+    let contacts = await ContactModel.find();
+    return contacts;
+  } catch (error: any) {
+    throw new Error(error);
+  }
+};
 
 export default {
   createAdmin,
   getAdminByEmail,
+  getContacts,
 };

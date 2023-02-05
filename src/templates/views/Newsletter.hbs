@@ -31,7 +31,7 @@
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin/getCreateNews">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -56,16 +56,16 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="index.html">
-          <i class="fas fa-fw fa-cog"></i>
+        <a class="nav-link collapsed" href="/admin/getCreateNews">
+          <i class="fas fa-solid fa-cart-plus"></i>
           <span>Create News</span>
         </a>
       </li>
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="get_news.html">
-          <i class="fas fa-fw fa-wrench"></i>
+        <a class="nav-link collapsed" href="/admin/getNews">
+          <i class="fas fa-solid fa-list"></i>
           <span>Get News</span>
         </a>
       </li>
@@ -78,22 +78,14 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="add_comments.html">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Add Comments</span>
-        </a>
-      </li>
-
-      <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="comments.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Comments</span></a>
+        <a class="nav-link" href="/admin/getContacts">
+          <i class="fas fa-solid fa-address-book"></i>
+          <span>Contacts</span></a>
       </li>
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="Newsletter.html">
+        <a class="nav-link" href="/admin/getNewsLetters">
           <i class="fas fa-fw fa-table"></i>
           <span>Newsletter</span></a>
       </li>
@@ -129,7 +121,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">SANKALP</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{name}}</span>
                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg" />
               </a>
               <!-- Dropdown - User Information -->
@@ -219,7 +211,7 @@
           <button class="btn btn-secondary" type="button" data-dismiss="modal">
             Cancel
           </button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <a class="btn btn-primary" href="/admin/logout">Logout</a>
         </div>
       </div>
     </div>

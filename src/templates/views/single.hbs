@@ -186,7 +186,7 @@
             <div
               class="owl-carousel tranding-carousel position-relative d-inline-flex align-items-center bg-white border border-left-0"
               style="width: calc(100% - 180px); padding-right: 100px">
-              {{#each trendingNews}}
+              {{#each trendingNews1}}
               <div class="text-truncate">
                 <a class="text-secondary text-uppercase font-weight-semi-bold" href="">{{this.title}}
                 </a>
@@ -207,7 +207,7 @@
         <div class="col-lg-8">
           <!-- News Detail Start -->
           <div class="position-relative mb-3">
-            <img class="img-fluid w-100" src="img/news-700x435-1.jpg" style="object-fit: cover" />
+            <img class="img-fluid w-100" src="/{{news.image}}" style="object-fit: cover" />
             <div class="bg-white border border-top-0 p-4">
               <div class="mb-3">
                 <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
@@ -223,12 +223,12 @@
             </div>
             <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
               <div class="d-flex align-items-center">
-                <img class="rounded-circle mr-2" src="/img/user.jpg" width="25" height="25" alt="" />
-                <span>John Doe</span>
+                {{!-- <img class="rounded-circle mr-2" src="/img/user.jpg" width="25" height="25" alt="" /> --}}
+                <span>Author - {{news.author}}</span>
               </div>
               <div class="d-flex align-items-center">
-                <span class="ml-3"><i class="far fa-eye mr-2"></i>12345</span>
-                <span class="ml-3"><i class="far fa-comment mr-2"></i>123</span>
+                {{!-- <span class="ml-3"><i class="far fa-eye mr-2"></i>12345</span> --}}
+                <span class="ml-3"><i class="far fa-comment mr-2"></i>{{news.comments.length}}</span>
               </div>
             </div>
           </div>
@@ -242,7 +242,7 @@
             <div class="bg-white border border-top-0 p-4">
               {{#each news.comments}}
               <div class="media mb-4">
-                <img src="/img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" />
+                {{!-- <img src="/img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" /> --}}
                 <div class="media-body">
                   <h6>
                     <a class="text-secondary font-weight-bold" href="">{{this.name}}</a>
@@ -507,30 +507,16 @@
         <h5 class="mb-4 text-white text-uppercase font-weight-bold">
           Popular News
         </h5>
+        {{#each trendingNews2}}
         <div class="mb-3">
           <div class="mb-2">
-            <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Business</a>
-            <a class="text-body" href=""><small>Jan 01, 2045</small></a>
+            <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">{{this.category}}</a>
+            <a class="text-body" href=""><small>{{this.formattedDate}}</small></a>
           </div>
           <a class="small text-body text-uppercase font-weight-medium" href=""
-            style="margin-right: 2rem; display: block">Lorem ipsum dolor sit amet elit. Proin vitae porta diam...</a>
+            style="margin-right: 2rem; display: block">{{this.title}}</a>
         </div>
-        <div class="mb-3">
-          <div class="mb-2">
-            <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Business</a>
-            <a class="text-body" href=""><small>Jan 01, 2045</small></a>
-          </div>
-          <a class="small text-body text-uppercase font-weight-medium" href=""
-            style="margin-right: 2rem; display: block">Lorem ipsum dolor sit amet elit. Proin vitae porta diam...</a>
-        </div>
-        <div class="">
-          <div class="mb-2">
-            <a class="badge badge-primary text-uppercase font-weight-semi-bold p-1 mr-2" href="">Business</a>
-            <a class="text-body" href=""><small>Jan 01, 2045</small></a>
-          </div>
-          <a class="small text-body text-uppercase font-weight-medium" href=""
-            style="margin-right: 2rem; display: block">Lorem ipsum dolor sit amet elit. Proin vitae porta diam...</a>
-        </div>
+        {{/each}}
       </div>
       <div class="col-lg-3 col-md-6 mb-5">
         <h5 class="mb-4 text-white text-uppercase font-weight-bold">
@@ -565,12 +551,14 @@
             vero kasd
           </p>
           <div class="input-group mb-2" style="width: 90%; position: relative; margin-top: 2.5rem">
-            <input type="text" class="form-control form-control-lg" placeholder="Your Email" />
-            <div class="input-group-append">
-              <button class="btn btn-primary font-weight-bold px-3">
-                Sign Up
-              </button>
-            </div>
+            <form action="/subscribe" method="post">
+              <input type="text" name="email" class="form-control form-control-lg" placeholder="Your Email" />
+              <div class="input-group-append">
+                <button type="submit" class="btn btn-primary font-weight-bold px-3">
+                  Sign Up
+                </button>
+              </div>
+            </form>
           </div>
           <small style="top: 1rem; position: relative; left: -1.5rem">Lorem ipsum dolor sit amet elit</small>
         </div>

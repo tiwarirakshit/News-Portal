@@ -4,6 +4,7 @@ import { NewsDocument } from '../models/news.model';
 import { MessageResponse } from '../interfaces/MessageResponse';
 import { Comment } from '../models/news.model';
 import { ContactDocument } from '../models/contact.model';
+import console from 'console';
 
 interface ImageObject {
   fieldname: string;
@@ -79,7 +80,7 @@ export async function getNewsByTitle(req: Request, res: Response) {
       return res.status(404).redirect('back');
     } else {
 
-      const trendingNews = await newsService.getTrendingNews();
+      const trendingResult = await newsService.getTrendingNews();
 
       const date = new Date(news.date);
       const day = date.getDate();
@@ -95,12 +96,36 @@ export async function getNewsByTitle(req: Request, res: Response) {
         date: formattedDate,
         category: news.category,
         comments: news.comments,
+        author: news.author,
       };
 
+      let trendingNews = [];
+
+      for (let i = 0; i < trendingResult.length; i++) {
+        // check date in DD-MM-YYYY format
+        const trendingDate = new Date(trendingResult[i].date);
+        const trendingDay = trendingDate.getDate();
+        const trendingMonth = trendingDate.getMonth() + 1;
+        const trendingYear = trendingDate.getFullYear();
+        const newDate = trendingDay + '-' + trendingMonth + '-' + trendingYear;
+        trendingNews.push({
+          title: trendingResult[i].title,
+          description: trendingResult[i].description,
+          image: trendingResult[i].image,
+          formattedDate: newDate,
+          category: trendingResult[i].category,
+          author: trendingResult[i].author,
+        });
+      }
+
+
+      const trendingNews1 = trendingNews.slice(0, 5);
+      const trendingNews2 = trendingNews.slice(5, 8);
 
       return res.status(200).render('single', {
         news: result,
-        trendingNews: trendingNews,
+        trendingNews1: trendingNews1,
+        trendingNews2: trendingNews2,
       });
     }
 
@@ -469,7 +494,16 @@ export async function getHomePage(req: Request, res: Response) {
         });
       }
 
-      return res.status(200).render('index', { latestNews: latestNews, trendingNews: trendingNews, featuredNews: featuredNews });
+      // divide trending news into 3 parts one with 3 news and second with 5 news and rest news in third part 
+      const trendingNews1 = trendingNews.slice(0, 3);
+      const trendingNews2 = trendingNews.slice(3, 7);
+      const trendingNews3 = trendingNews.slice(7, trendingNews.length);
+
+      return res.status(200).render('index', {
+        latestNews: latestNews.splice(0, 5), trendingNews1: trendingNews1,
+        trendingNews2: trendingNews2, trendingNews3: trendingNews3,
+        featuredNews: featuredNews.splice(0, 5),
+      });
     }
 
   } catch (error: any) {
@@ -507,9 +541,15 @@ export async function getNewUpdatePage(req: Request, res: Response) {
     if (!isNewsExist) {
       const news = await newsService.getNews();
       if (news.length === 0) {
-        return res.status(404).render('get_news', { message: 'News not found' });
+        return res.status(404).render('get_news', {
+          message: 'News not found',
+          name: res.locals.name,
+        });
       } else {
-        return res.status(404).render('get_news', { message: 'News not found', news: news });
+        return res.status(404).render('get_news', {
+          message: 'News not found', news: news,
+          name: res.locals.name,
+        });
       }
     } else {
       return res.status(200).render('update_news', { news: isNewsExist });
@@ -523,6 +563,8 @@ export async function subscribeNewsLetter(req: Request, res: Response) {
   try {
 
     const { email } = req.body;
+
+    console.log(email);
 
     const newsLetter = await newsService.subscribeNewsLetter(email);
     if (!newsLetter) {
