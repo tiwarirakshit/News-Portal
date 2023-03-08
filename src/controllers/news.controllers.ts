@@ -1,9 +1,9 @@
-import newsService from "../services/news.services";
-import { Request, Response } from "express";
-import { NewsDocument } from "../models/news.model";
-import { MessageResponse } from "../interfaces/MessageResponse";
-import { Comment } from "../models/news.model";
-import { ContactDocument } from "../models/contact.model";
+import newsService from '../services/news.services';
+import { Request, Response } from 'express';
+import { NewsDocument } from '../models/news.model';
+import { MessageResponse } from '../interfaces/MessageResponse';
+import { Comment } from '../models/news.model';
+import { ContactDocument } from '../models/contact.model';
 
 interface ImageObject {
   fieldname: string;
@@ -31,12 +31,12 @@ export async function createNews(req: Request, res: Response) {
 
     // Check if news already exists
     const isNewsExist = await newsService.getNewsByTitle(
-      title.split(" ").join("-")
+      title.split(' ').join('-'),
     );
 
     if (!!isNewsExist) {
-      return res.status(400).render("create_news", {
-        message: "News with this title already exists",
+      return res.status(400).render('create_news', {
+        message: 'News with this title already exists',
       });
     }
 
@@ -46,24 +46,24 @@ export async function createNews(req: Request, res: Response) {
       const files: ImageObject[] = req.files as ImageObject[];
       for (let i = 0; i < files.length; i++) {
         const image = files[i];
-        const splitUrlArray = image.destination.split("\\");
+        const splitUrlArray = image.destination.split('\\');
         let filteredUrl = splitUrlArray[splitUrlArray.length - 1];
-        let imagePath = filteredUrl + "/" + image.filename;
+        let imagePath = filteredUrl + '/' + image.filename;
         images.push(imagePath);
       }
     }
 
     let newNews: NewsDocument = {
-      title: title.trim().split(" ").join("-"),
+      title: title.trim().split(' ').join('-'),
       description: description,
       image: images,
       date: new Date(),
       author: author,
       videoLink: videoLink,
       category: category,
-      latest: latest === "true" ? true : false,
-      featured: featured === "true" ? true : false,
-      trending: trending === "true" ? true : false,
+      latest: latest === 'true' ? true : false,
+      featured: featured === 'true' ? true : false,
+      trending: trending === 'true' ? true : false,
     };
 
     let result = await newsService.createNews(newNews);
@@ -71,12 +71,12 @@ export async function createNews(req: Request, res: Response) {
     if (!result) {
       return res
         .status(500)
-        .render("create_news", { message: "Something went wrong" });
+        .render('create_news', { message: 'Something went wrong' });
     } else {
-      return res.status(201).redirect("/admin/getNews");
+      return res.status(201).redirect('/admin/getNews');
     }
   } catch (error: any) {
-    return res.status(500).render("create_news", { message: error.message });
+    return res.status(500).render('create_news', { message: error.message });
   }
 }
 
@@ -87,7 +87,7 @@ export async function getNewsByTitle(req: Request, res: Response) {
     const news = await newsService.getNewsByTitle(title);
 
     if (!news) {
-      return res.status(404).redirect("back");
+      return res.status(404).redirect('back');
     } else {
       const trendingResult = await newsService.getTrendingNews();
 
@@ -95,7 +95,7 @@ export async function getNewsByTitle(req: Request, res: Response) {
       const day = date.getDate();
       const month = date.getMonth() + 1;
       const year = date.getFullYear();
-      const formattedDate = day + "-" + month + "-" + year;
+      const formattedDate = day + '-' + month + '-' + year;
 
       let result = {
         _id: news._id,
@@ -117,7 +117,7 @@ export async function getNewsByTitle(req: Request, res: Response) {
         const trendingDay = trendingDate.getDate();
         const trendingMonth = trendingDate.getMonth() + 1;
         const trendingYear = trendingDate.getFullYear();
-        const newDate = trendingDay + "-" + trendingMonth + "-" + trendingYear;
+        const newDate = trendingDay + '-' + trendingMonth + '-' + trendingYear;
         trendingNews.push({
           title: trendingResult[i].title,
           description: trendingResult[i].description,
@@ -131,7 +131,7 @@ export async function getNewsByTitle(req: Request, res: Response) {
       const trendingNews1 = trendingNews.slice(0, 5);
       const trendingNews2 = trendingNews.slice(5, 8);
 
-      return res.status(200).render("single", {
+      return res.status(200).render('single', {
         news: result,
         trendingNews1: trendingNews1,
         trendingNews2: trendingNews2,
@@ -144,13 +144,13 @@ export async function getNewsByTitle(req: Request, res: Response) {
 
 export async function getNews(
   req: Request,
-  res: Response
+  res: Response,
 ): Promise<Response<MessageResponse>> {
   try {
     const news = await newsService.getNews();
 
     if (news.length === 0) {
-      return res.status(404).json({ message: "News not found" });
+      return res.status(404).json({ message: 'News not found' });
     }
 
     return res.status(200).json(news);
@@ -172,11 +172,11 @@ export async function makeTrending(req: Request, res: Response) {
       if (news.length === 0) {
         return res
           .status(404)
-          .render("get_news", { message: "News not found" });
+          .render('get_news', { message: 'News not found' });
       } else {
         return res
           .status(404)
-          .render("get_news", { message: "News not found", news: news });
+          .render('get_news', { message: 'News not found', news: news });
       }
     }
 
@@ -187,14 +187,14 @@ export async function makeTrending(req: Request, res: Response) {
       if (news.length === 0) {
         return res
           .status(404)
-          .render("get_news", { message: "News not found" });
+          .render('get_news', { message: 'News not found' });
       } else {
         return res
           .status(404)
-          .render("get_news", { message: "something went wrong", news: news });
+          .render('get_news', { message: 'something went wrong', news: news });
       }
     } else {
-      return res.status(201).redirect("/admin/getNews");
+      return res.status(201).redirect('/admin/getNews');
     }
   } catch (error: any) {
     return res.status(500).json({ message: error.message });
@@ -214,11 +214,11 @@ export async function makeFeatured(req: Request, res: Response) {
       if (news.length === 0) {
         return res
           .status(404)
-          .render("get_news", { message: "News not found" });
+          .render('get_news', { message: 'News not found' });
       } else {
         return res
           .status(404)
-          .render("get_news", { message: "News not found", news: news });
+          .render('get_news', { message: 'News not found', news: news });
       }
     }
 
@@ -230,14 +230,14 @@ export async function makeFeatured(req: Request, res: Response) {
       if (news.length === 0) {
         return res
           .status(404)
-          .render("get_news", { message: "News not found" });
+          .render('get_news', { message: 'News not found' });
       } else {
         return res
           .status(404)
-          .render("get_news", { message: "something went wrong", news: news });
+          .render('get_news', { message: 'something went wrong', news: news });
       }
     } else {
-      return res.status(201).redirect("/admin/getNews");
+      return res.status(201).redirect('/admin/getNews');
     }
   } catch (error: any) {
     return res.status(500).json({ message: error.message });
@@ -257,11 +257,11 @@ export async function makeLatest(req: Request, res: Response) {
       if (news.length === 0) {
         return res
           .status(404)
-          .render("get_news", { message: "News not found" });
+          .render('get_news', { message: 'News not found' });
       } else {
         return res
           .status(404)
-          .render("get_news", { message: "News not found", news: news });
+          .render('get_news', { message: 'News not found', news: news });
       }
     }
 
@@ -273,14 +273,14 @@ export async function makeLatest(req: Request, res: Response) {
       if (news.length === 0) {
         return res
           .status(404)
-          .render("get_news", { message: "News not found" });
+          .render('get_news', { message: 'News not found' });
       } else {
         return res
           .status(404)
-          .render("get_news", { message: "something went wrong", news: news });
+          .render('get_news', { message: 'something went wrong', news: news });
       }
     } else {
-      return res.status(201).redirect("/admin/getNews");
+      return res.status(201).redirect('/admin/getNews');
     }
   } catch (error: any) {
     return res.status(500).json({ message: error.message });
@@ -289,7 +289,7 @@ export async function makeLatest(req: Request, res: Response) {
 
 export async function getNewsById(
   req: Request,
-  res: Response
+  res: Response,
 ): Promise<Response<MessageResponse>> {
   try {
     const id = req.params.id;
@@ -297,7 +297,7 @@ export async function getNewsById(
     const news = await newsService.getNewsById(id);
 
     if (!news) {
-      return res.status(404).json({ message: "News not found" });
+      return res.status(404).json({ message: 'News not found' });
     }
 
     return res.status(200).json(news);
@@ -308,13 +308,13 @@ export async function getNewsById(
 
 export async function getTrendingNews(
   req: Request,
-  res: Response
+  res: Response,
 ): Promise<Response<MessageResponse>> {
   try {
     const news = await newsService.getTrendingNews();
 
     if (!news) {
-      return res.status(404).json({ message: "News not found" });
+      return res.status(404).json({ message: 'News not found' });
     }
 
     return res.status(200).json(news);
@@ -325,13 +325,13 @@ export async function getTrendingNews(
 
 export async function getLatestNews(
   req: Request,
-  res: Response
+  res: Response,
 ): Promise<Response<MessageResponse>> {
   try {
     const news = await newsService.getLatestNews();
 
     if (!news) {
-      return res.status(404).json({ message: "News not found" });
+      return res.status(404).json({ message: 'News not found' });
     }
 
     return res.status(200).json(news);
@@ -342,13 +342,13 @@ export async function getLatestNews(
 
 export async function getFeaturedNews(
   req: Request,
-  res: Response
+  res: Response,
 ): Promise<Response<MessageResponse>> {
   try {
     const news = await newsService.getFeaturedNews();
 
     if (!news) {
-      return res.status(404).json({ message: "News not found" });
+      return res.status(404).json({ message: 'News not found' });
     }
 
     return res.status(200).json(news);
@@ -367,11 +367,11 @@ export async function deleteNews(req: Request, res: Response) {
       if (news.length === 0) {
         return res
           .status(404)
-          .render("get_news", { message: "News not found" });
+          .render('get_news', { message: 'News not found' });
       } else {
         return res
           .status(404)
-          .render("get_news", { message: "News not found", news: news });
+          .render('get_news', { message: 'News not found', news: news });
       }
     }
     const result = await newsService.deleteNews(id);
@@ -382,17 +382,17 @@ export async function deleteNews(req: Request, res: Response) {
       if (news.length === 0) {
         return res
           .status(404)
-          .render("get_news", { message: "News not found" });
+          .render('get_news', { message: 'News not found' });
       } else {
         return res
           .status(404)
-          .render("get_news", { message: "something went wrong", news: news });
+          .render('get_news', { message: 'something went wrong', news: news });
       }
     } else {
-      return res.status(201).redirect("/admin/getNews");
+      return res.status(201).redirect('/admin/getNews');
     }
   } catch (error: any) {
-    return res.status(500).redirect("/admin/getNews");
+    return res.status(500).redirect('/admin/getNews');
   }
 }
 
@@ -416,7 +416,7 @@ export async function updateNews(req: Request, res: Response) {
 
     if (!isNewsExist) {
       return res.status(404).json({
-        message: "News not found",
+        message: 'News not found',
         error: false,
       });
     }
@@ -427,9 +427,9 @@ export async function updateNews(req: Request, res: Response) {
       const files: ImageObject[] = req.files as ImageObject[];
       for (let i = 0; i < files.length; i++) {
         const image = files[i];
-        const splitUrlArray = image.destination.split("\\");
+        const splitUrlArray = image.destination.split('\\');
         let filteredUrl = splitUrlArray[splitUrlArray.length - 1];
-        let imagePath = filteredUrl + "/" + image.filename;
+        let imagePath = filteredUrl + '/' + image.filename;
         images.push(imagePath);
       }
     } else {
@@ -437,28 +437,28 @@ export async function updateNews(req: Request, res: Response) {
     }
 
     let newNews: NewsDocument = {
-      title: title.split(" ").join("-"),
+      title: title.split(' ').join('-'),
       description: description,
       image: images,
       date: new Date(),
       author: author,
       videoLink: videoLink,
       category: category,
-      featured: featured == "true" ? true : false,
-      latest: latest == "true" ? true : false,
-      trending: trending == "true" ? true : false,
+      featured: featured == 'true' ? true : false,
+      latest: latest == 'true' ? true : false,
+      trending: trending == 'true' ? true : false,
     };
 
     const news = await newsService.updateNews(id, newNews);
 
     if (!news) {
-      return res.status(404).render("update_news", {
-        message: "something went wrong",
+      return res.status(404).render('update_news', {
+        message: 'something went wrong',
         news: isNewsExist,
         error: false,
       });
     } else {
-      return res.status(201).redirect("/admin/getNews");
+      return res.status(201).redirect('/admin/getNews');
     }
   } catch (error: any) {
     return res.status(500).json({
@@ -475,7 +475,7 @@ export async function getHomePage(req: Request, res: Response) {
     const resultFeaturedNews = await newsService.getFeaturedNews();
 
     if (!resultLatestNews || !resultTrendingNews || !resultFeaturedNews) {
-      return res.status(404).render("index", { message: "News not found" });
+      return res.status(404).render('index', { message: 'News not found' });
     } else {
       let latestNews = [];
 
@@ -485,7 +485,7 @@ export async function getHomePage(req: Request, res: Response) {
         const day = date.getDate();
         const month = date.getMonth() + 1;
         const year = date.getFullYear();
-        const formattedDate = day + "-" + month + "-" + year;
+        const formattedDate = day + '-' + month + '-' + year;
         latestNews.push({
           title: resultLatestNews[i].title,
           description: resultLatestNews[i].description,
@@ -504,7 +504,7 @@ export async function getHomePage(req: Request, res: Response) {
         const day = date.getDate();
         const month = date.getMonth() + 1;
         const year = date.getFullYear();
-        const formattedDate = day + "-" + month + "-" + year;
+        const formattedDate = day + '-' + month + '-' + year;
         trendingNews.push({
           title: resultTrendingNews[i].title,
           description: resultTrendingNews[i].description,
@@ -523,7 +523,7 @@ export async function getHomePage(req: Request, res: Response) {
         const day = date.getDate();
         const month = date.getMonth() + 1;
         const year = date.getFullYear();
-        const formattedDate = day + "-" + month + "-" + year;
+        const formattedDate = day + '-' + month + '-' + year;
         featuredNews.push({
           title: resultFeaturedNews[i].title,
           description: resultFeaturedNews[i].description,
@@ -539,7 +539,7 @@ export async function getHomePage(req: Request, res: Response) {
       const trendingNews2 = trendingNews.slice(3, 7);
       const trendingNews3 = trendingNews.slice(7, trendingNews.length);
 
-      return res.status(200).render("index", {
+      return res.status(200).render('index', {
         latestNews: latestNews.splice(0, 5),
         trendingNews1: trendingNews1,
         trendingNews2: trendingNews2,
@@ -564,7 +564,7 @@ export async function getContactPage(req: Request, res: Response) {
       const trendingDay = trendingDate.getDate();
       const trendingMonth = trendingDate.getMonth() + 1;
       const trendingYear = trendingDate.getFullYear();
-      const newDate = trendingDay + "-" + trendingMonth + "-" + trendingYear;
+      const newDate = trendingDay + '-' + trendingMonth + '-' + trendingYear;
       trendingNews.push({
         title: trendingResult[i].title,
         description: trendingResult[i].description,
@@ -577,7 +577,7 @@ export async function getContactPage(req: Request, res: Response) {
 
     const trendingNews1 = trendingNews.slice(0, 5);
     const trendingNews2 = trendingNews.slice(5, 8);
-    return res.status(200).render("contact", {
+    return res.status(200).render('contact', {
       trendingNews1: trendingNews1,
       trendingNews2: trendingNews2,
     });
@@ -592,9 +592,9 @@ export async function getCategoryPage(req: Request, res: Response) {
     const resultTrendingNews = await newsService.getTrendingNews();
     const resultFeaturedNews = await newsService.getFeaturedNews();
     if (!resultLatestNews || !resultTrendingNews || !resultFeaturedNews) {
-      return res.status(404).render("category", { message: "News not found" });
+      return res.status(404).render('category', { message: 'News not found' });
     } else {
-      return res.status(200).render("category", {
+      return res.status(200).render('category', {
         latestNews: resultLatestNews,
         trendingNews: resultTrendingNews,
         featuredNews: resultFeaturedNews,
@@ -612,21 +612,21 @@ export async function getUpdatePage(req: Request, res: Response) {
     if (!isNewsExist) {
       const news = await newsService.getNews();
       if (news.length === 0) {
-        return res.status(404).render("get_news", {
-          message: "News not found",
+        return res.status(404).render('get_news', {
+          message: 'News not found',
           name: res.locals.name,
           error: false,
         });
       } else {
-        return res.status(404).render("get_news", {
-          message: "News not found",
+        return res.status(404).render('get_news', {
+          message: 'News not found',
           news: news,
           name: res.locals.name,
           error: false,
         });
       }
     } else {
-      return res.status(200).render("update_news", {
+      return res.status(200).render('update_news', {
         news: isNewsExist,
         message: false,
         name: res.locals.name,
@@ -647,9 +647,9 @@ export async function subscribeNewsLetter(req: Request, res: Response) {
 
     const newsLetter = await newsService.subscribeNewsLetter(email);
     if (!newsLetter) {
-      return res.status(404).redirect("back");
+      return res.status(404).redirect('back');
     } else {
-      return res.status(201).redirect("back");
+      return res.status(201).redirect('back');
     }
   } catch (error: any) {
     return res.status(500).json({ message: error.message });
@@ -664,7 +664,7 @@ export async function addComment(req: Request, res: Response) {
     const news = await newsService.getNewsById(id);
 
     if (!news) {
-      return res.status(404).redirect("/");
+      return res.status(404).redirect('/');
     }
 
     const commentDocument: Comment = {
@@ -676,9 +676,9 @@ export async function addComment(req: Request, res: Response) {
     const newComment = await newsService.addComment(id, commentDocument);
 
     if (!newComment) {
-      return res.status(404).redirect("/getNewsByTitle" + news.title);
+      return res.status(404).redirect('/getNewsByTitle' + news.title);
     } else {
-      return res.status(201).redirect("/getNewsByTitle/" + news.title);
+      return res.status(201).redirect('/getNewsByTitle/' + news.title);
     }
   } catch (error: any) {
     return res.status(500).redirect(req.originalUrl);
@@ -706,7 +706,7 @@ export async function contactRequest(req: Request, res: Response) {
       const trendingDay = trendingDate.getDate();
       const trendingMonth = trendingDate.getMonth() + 1;
       const trendingYear = trendingDate.getFullYear();
-      const newDate = trendingDay + "-" + trendingMonth + "-" + trendingYear;
+      const newDate = trendingDay + '-' + trendingMonth + '-' + trendingYear;
       trendingNews.push({
         title: trendingResult[i].title,
         description: trendingResult[i].description,
@@ -722,14 +722,14 @@ export async function contactRequest(req: Request, res: Response) {
 
     const result = await newsService.contactRequest(contactDetails);
     if (!result) {
-      return res.status(404).render("contact", {
-        message: "something went wrong",
+      return res.status(404).render('contact', {
+        message: 'something went wrong',
         trendingNews1: trendingNews1,
         trendingNews2: trendingNews2,
       });
     } else {
-      return res.status(201).render("contact", {
-        message: "Message sent successfully",
+      return res.status(201).render('contact', {
+        message: 'Message sent successfully',
         trendingNews1: trendingNews1,
         trendingNews2: trendingNews2,
       });

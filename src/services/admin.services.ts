@@ -1,6 +1,6 @@
-import { AdminDocument } from "../models/admin.model";
-import AdminModel from "../models/admin.model";
-import ContactModel from "../models/contact.model";
+import { AdminDocument } from '../models/admin.model';
+import AdminModel from '../models/admin.model';
+import ContactModel from '../models/contact.model';
 
 const createAdmin = async (admin: AdminDocument) => {
   try {

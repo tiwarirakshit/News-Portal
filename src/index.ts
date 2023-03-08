@@ -1,13 +1,14 @@
 import app from "./app";
-import http from "http";
+import express from "express";
+const server = express();
 
 const port = Number(process.env.PORT);
 
 const start = (Port: number) => {
   try {
-    let server: http.Server = http.createServer(app).listen(Port);
-    server.on("listening", () => {
-      console.log(`Listening: http://localhost:${Port}`);
+    server.use(app);
+    server.listen(Port, () => {
+      console.log(`Server running on port ${Port}`);
     });
   } catch (error) {
     console.error(error);

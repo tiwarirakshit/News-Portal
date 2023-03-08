@@ -1,18 +1,18 @@
-import adminServices from "../services/admin.services";
-import newsServices from "../services/news.services";
-import { Request, Response } from "express";
-import { AdminDocument } from "../models/admin.model";
-import bcrypt from "bcrypt";
-import { MessageResponse } from "../interfaces/MessageResponse";
-import jwt, { Secret } from "jsonwebtoken";
+import adminServices from '../services/admin.services';
+import newsServices from '../services/news.services';
+import { Request, Response } from 'express';
+import { AdminDocument } from '../models/admin.model';
+import bcrypt from 'bcrypt';
+import { MessageResponse } from '../interfaces/MessageResponse';
+import jwt, { Secret } from 'jsonwebtoken';
 
-require("dotenv").config();
+require('dotenv').config();
 
 export const SECRET_KEY: Secret = process.env.JWT_SECRET as Secret;
 
 export async function register(
   req: Request,
-  res: Response
+  res: Response,
 ): Promise<Response<MessageResponse>> {
   try {
     const { name, email, password } = req.body;
@@ -21,7 +21,7 @@ export async function register(
 
     if (admin) {
       return res.status(400).json({
-        message: "Admin already exists",
+        message: 'Admin already exists',
         error: false,
       });
     }
@@ -40,7 +40,7 @@ export async function register(
     await adminServices.createAdmin(newAdmin);
 
     return res.status(201).json({
-      message: "Admin created",
+      message: 'Admin created',
       error: false,
     });
   } catch (error: any) {
@@ -58,8 +58,8 @@ export async function loginAdmin(req: Request, res: Response) {
     const admin = await adminServices.getAdminByEmail(email);
 
     if (!admin) {
-      return res.status(400).render("login", {
-        message: "Invalid credentials",
+      return res.status(400).render('login', {
+        message: 'Invalid credentials',
         error: false,
       });
     }
@@ -67,8 +67,8 @@ export async function loginAdmin(req: Request, res: Response) {
     const isMatch: Boolean = await bcrypt.compare(password, admin.password);
 
     if (!isMatch) {
-      return res.status(400).render("login", {
-        message: "Invalid credentials",
+      return res.status(400).render('login', {
+        message: 'Invalid credentials',
         error: false,
       });
     }
@@ -81,25 +81,25 @@ export async function loginAdmin(req: Request, res: Response) {
     let token = jwt.sign(payload, SECRET_KEY, { expiresIn: 360000 });
 
     if (!token) {
-      return res.status(400).render("login", {
-        message: "Invalid credentials",
+      return res.status(400).render('login', {
+        message: 'Invalid credentials',
         error: false,
       });
     }
 
     return res
-      .cookie("access_token", token, {
+      .cookie('access_token', token, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
+        secure: process.env.NODE_ENV === 'production',
       })
       .status(200)
-      .render("create_news", {
+      .render('create_news', {
         name: admin.name,
         message: false,
         error: false,
       });
   } catch (error: any) {
-    return res.status(500).render("login", {
+    return res.status(500).render('login', {
       message: error.message,
       error: false,
     });
@@ -109,17 +109,17 @@ export async function loginAdmin(req: Request, res: Response) {
 export async function logoutAdmin(req: Request, res: Response) {
   try {
     return res
-      .clearCookie("access_token")
+      .clearCookie('access_token')
       .status(200)
-      .render("login", { message: "Logged out" });
+      .render('login', { message: 'Logged out' });
   } catch (error: any) {
-    return res.status(500).render("login", { message: error.message });
+    return res.status(500).render('login', { message: error.message });
   }
 }
 
 export async function getLoginPage(req: Request, res: Response) {
   try {
-    return res.status(200).render("login", {
+    return res.status(200).render('login', {
       message: false,
       error: false,
     });
@@ -130,13 +130,13 @@ export async function getLoginPage(req: Request, res: Response) {
 
 export async function getCreateNewsPage(req: Request, res: Response) {
   try {
-    return res.status(200).render("create_news", {
+    return res.status(200).render('create_news', {
       name: res.locals.name,
       message: false,
       error: false,
     });
   } catch (error: any) {
-    return res.status(500).render("login", { message: error.message });
+    return res.status(500).render('login', { message: error.message });
   }
 }
 
@@ -144,13 +144,13 @@ export async function getNewsPage(req: Request, res: Response) {
   try {
     const news = await newsServices.getNews();
     if (news.length === 0) {
-      return res.status(200).render("get_news", {
+      return res.status(200).render('get_news', {
         news: [],
-        message: "No news found",
+        message: 'No news found',
         name: res.locals.name,
       });
     } else {
-      return res.status(200).render("get_news", {
+      return res.status(200).render('get_news', {
         news: news,
         name: res.locals.name,
       });
@@ -166,9 +166,9 @@ export async function getNewsLetterPage(req: Request, res: Response) {
     if (!result) {
       return res
         .status(404)
-        .render("Newsletter", { message: "News not found" });
+        .render('Newsletter', { message: 'News not found' });
     } else {
-      return res.status(200).render("Newsletter", { newsLetter: result });
+      return res.status(200).render('Newsletter', { newsLetter: result });
     }
   } catch (error: any) {
     return res.status(500).json({ message: error.message });
@@ -181,9 +181,9 @@ export async function getContacts(req: Request, res: Response) {
     if (!result) {
       return res
         .status(404)
-        .render("get_contacts", { message: "Contacts not found" });
+        .render('get_contacts', { message: 'Contacts not found' });
     } else {
-      return res.status(200).render("get_contacts", {
+      return res.status(200).render('get_contacts', {
         contacts: result,
         name: res.locals.name,
       });
