@@ -10,6 +10,9 @@
     "lint": "eslint --fix src",
     "production": "node dist/src/index.js"
   },
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "keywords": [],
   "author": "Mohit kadwe",
   "repository": {
