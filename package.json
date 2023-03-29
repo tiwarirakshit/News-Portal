@@ -8,7 +8,7 @@
     "dev": "nodemon src/index.ts",
     "build": "tsc",
     "lint": "eslint --fix src",
-    "production": "node dist/src/index.js"
+    "production": "node dist/index.js"
   },
   "engines": {
     "node": ">=16.0.0"
