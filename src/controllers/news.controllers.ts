@@ -46,7 +46,7 @@ export async function createNews(req: Request, res: Response) {
       const files: ImageObject[] = req.files as ImageObject[];
       for (let i = 0; i < files.length; i++) {
         const image = files[i];
-        const splitUrlArray = image.destination.split('\\');
+        const splitUrlArray = image.destination.split('/');
         let filteredUrl = splitUrlArray[splitUrlArray.length - 1];
         let imagePath = filteredUrl + '/' + image.filename;
         images.push(imagePath);
@@ -427,7 +427,7 @@ export async function updateNews(req: Request, res: Response) {
       const files: ImageObject[] = req.files as ImageObject[];
       for (let i = 0; i < files.length; i++) {
         const image = files[i];
-        const splitUrlArray = image.destination.split('\\');
+        const splitUrlArray = image.destination.split('/');
         let filteredUrl = splitUrlArray[splitUrlArray.length - 1];
         let imagePath = filteredUrl + '/' + image.filename;
         images.push(imagePath);
